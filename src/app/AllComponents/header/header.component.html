@@ -1,0 +1,37 @@
+<div class="cd row bg-primary m-auto" >
+    <div class="col-md-4 m-auto" style="background-color: #e3f2fd; width: 10%;" >
+        <a href="" class="navbar-brand " >MEDLAB</a>
+
+    </div>
+    <div class="col-md-6 m-auto text-light text-end">
+         <a href="" class="navbar-brand" routerLink="about-us-page">About-us</a>
+         <a href="" class="navbar-brand ms-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
+         <!-- <a href="" class="navbar-brand ms-4">SignUp</a> -->
+    </div>
+
+</div>
+
+
+   <!-- SignUp Modal -->
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-signup *ngIf="actionName == 'SignUp'"></app-signup>
+          <app-login *ngIf="actionName == 'SignIn'" (signInSuccess)="handleLoginSuccess($event)"></app-login>
+        </div>
+        <div class="d-grid gap-2" >
+          <button class="btn btn-primary m-4" type="button" *ngIf="actionName=='SignIn'" (click)="changeAction('SignUp')">Sign Up</button>
+          <button class="btn btn-primary m-4" type="button" *ngIf="actionName=='SignUp'" (click)="changeAction('SignIn')">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>

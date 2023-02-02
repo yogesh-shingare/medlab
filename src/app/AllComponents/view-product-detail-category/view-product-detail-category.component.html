@@ -1,0 +1,46 @@
+<!-- <p>view-product-detail-category works!</p> -->
+<div class="cd row  mt-4 py-2" style="background-color: #e3f2fd;">
+    <div class="ms-5" style=" width: 10%;">
+        <h5> <a routerLink="/medicine-home" class="navbar-brand" style="font-weight: 600;" ><i class="bi bi-arrow-left"></i>&nbsp; Top Deals</a></h5>
+    </div>
+</div>
+<!-- Location Container  -->
+<div class="cd row py-3" style="background-color: #cfecb7;">
+    <div class="ms-5" style=" width: 10%;">
+        <div class="col-md-6">
+            <small class="navbar-brand text-center"  > Showing Medicine Availability and Price in Your Location <i class="bi bi-geo-alt-fill text-primary"></i></small>
+    </div>
+    </div>
+</div>
+<div class="container mt-4">
+<div class="text-bold"><h4 style="text-decoration: solid;"> Shop By Categories </h4></div>
+
+<!-- copy from main -->
+<div class="container mt-2">
+    <div class="row" *ngFor="let category of topDealsByCategory;let i=index">
+       <div class="col-md-2 my-3">
+          <div class="card card-block" style="width: 230px;height: 410px;margin-right: 4px;">
+             <div class="card-body d-flex align-items-center justify-content-center flex-column">
+                <h5>{{category.categoryName}}</h5>
+                <h5 class="text-primary">View All</h5>
+             </div>
+          </div>
+       </div>
+       <div class="col-md-2 mx-5 my-3" *ngFor="let deal of category.top_deals">
+          <div class="card card-block cursor" style="width: 230px; height: 410px;margin-left: 4px;">
+             <img [src]="deal.productImageSlug[0]" [routerLink]="['/view-product-details',deal.drugCode]" class="card-img-top m-2 p-4" alt="..." height="220">
+             <div class="card-body">
+                <h5 class="card-title card-description" [title]="deal.description">{{deal.description}}</h5>
+                <p class="card-text text-muted">{{deal.type}}</p>
+                <span class="card-text text-muted">MRP</span>
+                <p style="font-size: 20px;">₹ <span class="ms-0">{{deal.discountPrice}}</span> &nbsp; <span
+                      style="margin-left: 90px;" class="border border-primary rounded"><a
+                          class="text-decoration-none px-3 fs-6" >ADD</a> 
+                   </span></p> <!-- (click)="addToCart(deal)"-->
+             </div>
+          </div>
+       </div>
+ 
+    </div>
+ </div>
+</div> 

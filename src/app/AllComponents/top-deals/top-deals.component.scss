@@ -1,0 +1,21 @@
+.card-Block{
+box-shadow: 0 0 10px rgb(24 24 24 / 16%);
+border-radius: 20px;
+margin: 5px;
+}
+
+.card-description{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.card{
+
+    --bs-card-spacer-x: 0rem;
+    --bs-card-title-spacer-y: 0rem;
+    --bs-card-border-width: 0px;
+    --bs-card-group-margin: 5rem;
+}
