@@ -1,0 +1,34 @@
+
+
+<!-- <div>Some tags before</div>
+<owl-carousel-o [options]="customOptions">
+  <ng-template carouselSlide>Slide 1</ng-template>  
+  <ng-template carouselSlide>Slide 2</ng-template>  
+  <ng-template carouselSlide>Slide 3</ng-template>  
+</owl-carousel-o>
+<div>Some tags after</div> -->
+
+<div class="container py-2">
+  <div class="row">
+      <owl-carousel-o [options]="customOptions">
+
+        <ng-container *ngFor="let deal of topDeals">
+          <ng-template carouselSlide [id]="deal.id">
+            <!-- <img [src]="slide.productImageSlug[0]" [alt]="slide.alt" [title]="slide.title"> -->
+            <div class="card card-Block shadow p-2 " style="width: 250px; " [routerLink]="['/view-product-details',deal.drugCode]">
+              <img [src]="deal.productImageSlug[0]" class="card-img-top m-2 p-1 cursor"  height="180px" width="40px">
+              <div class="card-body m-3" style="margin-left: 10px;">
+                <h5 class="card-title card-description cursor">{{deal.description}}</h5>
+                <p class="card-text text-muted">{{deal.type}}</p>
+                <span class="card-text text-muted">MRP </span>
+                <p class="text-muted text-decoration-line-through" >₹ <span>{{deal.actualPrice}}</span></p>
+                <p class="card-text  " style="font-size: 20px;">₹&nbsp;{{deal.discountPrice}} <a href="#" class="btn btn-primary ms-5">Add</a></p>
+                
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o>
+    </div>
+  </div>
