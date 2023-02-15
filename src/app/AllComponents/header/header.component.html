@@ -4,9 +4,13 @@
 
     </div>
     <div class="col-md-6 m-auto text-light text-end">
-         <a href="" class="navbar-brand" routerLink="about-us-page">About-us</a>
-         <a href="" class="navbar-brand ms-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
-         <!-- <a href="" class="navbar-brand ms-4">SignUp</a> -->
+      <a class="navbar-brand cursor" (click)="redirectToCart()"> <i class="bi bi-cart me-2 fs-4"></i><span class="cartCount">{{cardCount|async}}</span>Cart</a>
+      <a class="navbar-brand ms-4 cursor" *ngIf="!isLoginSuccess" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        #loginBtn>Login</a>
+      <a class="navbar-brand ms-4" *ngIf="isLoginSuccess">{{loggedUserDetails?.userName}}</a>&nbsp;
+      <a href="" class="navbar-brand" routerLink="about-us-page">About-us</a>
+      <!-- <a href="" class="navbar-brand ms-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a> -->
+      <!-- <a href="" class="navbar-brand ms-4">SignUp</a> -->
     </div>
 
 </div>
@@ -21,8 +25,8 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title" id="exampleModalLabel">{{actionName}}&nbsp;Form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeBtn></button>
         </div>
         <div class="modal-body">
           <app-signup *ngIf="actionName == 'SignUp'"></app-signup>
@@ -30,7 +34,7 @@
         </div>
         <div class="d-grid gap-2" >
           <button class="btn btn-primary m-4" type="button" *ngIf="actionName=='SignIn'" (click)="changeAction('SignUp')">Sign Up</button>
-          <button class="btn btn-primary m-4" type="button" *ngIf="actionName=='SignUp'" (click)="changeAction('SignIn')">Login</button>
+          <button class="btn btn-primary m-4" type="button" *ngIf="actionName=='SignUp'" (click)="changeAction('SignIn')" >Login</button>
         </div>
       </div>
     </div>
