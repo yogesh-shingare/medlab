@@ -26,9 +26,9 @@ export class HeaderComponent implements OnInit {
       this.isLoginSuccess = true ;
     }
 
-     //  this.sub =  this.shared.cartObs.subscribe((el:any)=>{
-  //     this.cardCount = el ;
-  //    });
+    //   this.sub =  this.shared.cartObs.subscribe((el:any)=>{
+    //   this.cardCount = el ;
+    //  });
 
   this.cardCount = this.shared.cartObs;
   }
@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
 
   redirectToCart(){
     if(this.isLoginSuccess){
-      this.router.navigate(['cart'])
+      this.router.navigate(['/cart'])
     }else {
        this.loginBtn.nativeElement.click();
     }

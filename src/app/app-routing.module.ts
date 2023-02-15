@@ -7,6 +7,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ViewProductDetailsComponent } from './AllComponents/view-product-details/view-product-details.component';
 import { ViewProductDetailCategoryComponent } from './AllComponents/view-product-detail-category/view-product-detail-category.component';
 import { AboutUsComponent } from './AllComponents/about-us/about-us.component';
+import { CartComponent } from './cart/cart.component';
+import { BookingDetailsComponent } from './cart/booking-details/booking-details.component';
+import { ConfirmOrderComponent } from './cart/confirm-order/confirm-order.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -14,6 +17,9 @@ const routes: Routes = [
   {path:'view-product-details/:drug-code',component:ViewProductDetailsComponent},
   {path:'view-by-category', component:ViewProductDetailCategoryComponent},
   {path:'about-us-page',component:AboutUsComponent},
+  {path:'cart',component:CartComponent},
+  {path:'booking-details',component:BookingDetailsComponent},
+  {path:'confirm-order',component:ConfirmOrderComponent},
   {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'**',component:PageNotFoundComponent}
   

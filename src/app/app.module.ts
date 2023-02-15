@@ -20,6 +20,8 @@ import { ViewProductDetailCategoryComponent } from './AllComponents/view-product
 // import { LoginModule } from './login/login.module';
 import { LoginModule} from "./login/login.module";
 import { AboutUsComponent } from './AllComponents/about-us/about-us.component';
+import { CartComponent } from './cart/cart.component';
+import { CartModule } from './cart/cart.module';
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { AboutUsComponent } from './AllComponents/about-us/about-us.component';
         ViewProductDetailCategoryComponent,
         AboutUsComponent,
         
+        
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -47,6 +50,7 @@ import { AboutUsComponent } from './AllComponents/about-us/about-us.component';
         HttpClientModule,
         FormsModule,
         LoginModule,
+        CartModule
     ]
 })
 export class AppModule { }

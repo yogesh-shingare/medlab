@@ -1,6 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/cart/cart.service';
 import { HttpService } from 'src/app/core/http/http.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { HttpService } from 'src/app/core/http/http.service';
 })
 export class ViewProductDetailsComponent implements OnInit {
 productDetails:any; 
-  constructor( private route:ActivatedRoute, private http:HttpService) { }
+deal:any;
+  constructor( private route:ActivatedRoute, private http:HttpService, private cart:CartService) { }
 
   ngOnInit(): void {
     const drugCode= this.route.snapshot.paramMap.get('drug-code');
@@ -29,5 +31,9 @@ this.http.getDetailsfromServer('top-deals',params).subscribe((response:any)=>{
   }
 })
   }
+
+  addToCart(product:any){
+    this.cart.addSelectItemToCart(product);
+   }
 
 }

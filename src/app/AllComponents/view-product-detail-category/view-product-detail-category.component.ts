@@ -20,14 +20,11 @@ export class ViewProductDetailCategoryComponent implements OnInit {
        this.topDealsByCategory = response ;
      }
     })
+    }
 
-    // addToCart(product:any){
-    //   this.cart.addSelectItemToCart(product);
-    //  }
-
-
-  // addToCart(product: any, any: any) {
-  //   throw new Error('Function not implemented.');
-  // }
+    addToCart(product:any){
+      this.cart.addSelectItemToCart(product);
+     }
 }
-}
+
+
